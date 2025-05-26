@@ -1,14 +1,11 @@
-# Usa a imagem oficial do PHP com servidor embutido
-FROM php:8.2-cli
+# Usa a imagem oficial PHP com Apache
+FROM php:8.2-apache
 
-# Define o diretório de trabalho dentro do container
-WORKDIR /var/www/html
+# Copia os arquivos da aplicação para o diretório padrão do Apache
+COPY . /var/www/html/
 
-# Copia os arquivos da aplicação para dentro do container
-COPY . .
+# Dá permissão de leitura para os arquivos copiados (opcional)
+RUN chown -R www-data:www-data /var/www/html
 
-# Expõe a porta 8000 (ou a que você preferir)
-EXPOSE 8000
-
-# Comando para iniciar o servidor PHP embutido
-CMD ["php", "-S", "0.0.0.0:8000"]
+# Expondo a porta padrão do Apache
+EXPOSE 80
