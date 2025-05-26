@@ -1,11 +1,22 @@
-# Usa a imagem oficial PHP com Apache
-FROM php:8.2-apache
+# Usa uma imagem oficial do Node
+FROM node:18
 
-# Copia os arquivos da aplicação para o diretório padrão do Apache
-COPY . /var/www/html/
+# Define o diretório de trabalho
+WORKDIR /app
 
-# Dá permissão de leitura para os arquivos copiados (opcional)
-RUN chown -R www-data:www-data /var/www/html
+# Copia os arquivos
+COPY package*.json ./
+RUN npm install
 
-# Expondo a porta padrão do Apache
-EXPOSE 80
+# Copia o restante do código
+COPY . .
+
+# Expõe a porta que o Render usa por padrão
+EXPOSE 10000
+
+# Usa a variável de ambiente PORT fornecida pelo Render
+ENV PORT=10000
+
+# Inicia a aplicação
+CMD ["npm", "start"]
+
