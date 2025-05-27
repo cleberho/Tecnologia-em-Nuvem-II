@@ -1,0 +1,6 @@
+Códigos_PHP/
+├── index.php          # primeira aplicação (exemplo)
+├── formulario.php     # segunda aplicação
+├── formulario_1.php   # terceira aplicação 
+├── formulario_2.php   # quarta aplicação
+└── Dockerfile
