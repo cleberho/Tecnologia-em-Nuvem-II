@@ -15,7 +15,9 @@ COPY . .
 EXPOSE 10000
 
 # Usa a variável de ambiente PORT fornecida pelo Render
-ENV PORT=10000
+// ENV PORT=10000
+rm formulario.php
+rm formulario_2.php
 
 # Inicia a aplicação
 CMD ["npm", "start"]
