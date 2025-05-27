@@ -19,6 +19,7 @@ ENV PORT=10000
 
 
 # Inicia a aplicação
-// CMD ["npm", "start"]
+CMD ["npm", "start"]
+
 rm formulario.php
 rm formulario_2.php
