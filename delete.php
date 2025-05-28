@@ -1,10 +1,10 @@
 <?php
 // Caminho da pasta onde estão os arquivos
-$arquivo = __DIR__ . '/uploads/temp.txt'; // Altere o nome e caminho conforme necessário
+$arquivo = __DIR__ . '/uploads/formulario.php'; // Altere o nome e caminho conforme necessário
 
 if (file_exists($arquivo)) {
     unlink($arquivo);
-    echo "✅ Arquivo deletado: temp.txt";
+    echo "✅ Arquivo deletado: formulario.php";
 } else {
     echo "⚠️ Arquivo não encontrado.";
 }
