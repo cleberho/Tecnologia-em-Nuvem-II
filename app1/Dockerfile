@@ -1,5 +1,11 @@
+# Usa a imagem oficial do PHP com Apache
 FROM php:8.2-apache
-COPY app1/ /var/www/html/
-RUN a2enmod rewrite && chown -R www-data:www-data /var/www/html
+
+# Copia os arquivos da sua aplicação para o diretório padrão do Apache
+COPY . /var/www/html/
+
+# Habilita módulos adicionais do Apache (opcional)
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Exponha a porta padrão do Apache
 EXPOSE 80
-CMD ["apache2-foreground"]
