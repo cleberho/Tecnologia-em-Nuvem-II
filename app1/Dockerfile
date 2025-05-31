@@ -6,3 +6,6 @@ COPY . /var/www/html/
 
 # Habilita módulos adicionais do Apache (opcional)
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Permite URLs amigáveis
+RUN a2enmod rewrite
