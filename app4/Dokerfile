@@ -1,0 +1,12 @@
+# Usa a imagem oficial do PHP com Apache
+FROM php:8.2-apache
+
+# Copia os arquivos da aplicação para o diretório do Apache
+COPY public/ /var/www/html/
+COPY config.php /var/www/html/config.php
+
+# Habilita a extensão mysqli (necessária para MySQL)
+RUN docker-php-ext-install mysqli
+
+# Define porta padrão (Render espera que a aplicação rode na 0.0.0.0:10000 ou porta definida)
+EXPOSE 80
